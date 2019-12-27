@@ -2,6 +2,7 @@
 const strictUriEncode = require('strict-uri-encode');
 const decodeComponent = require('decode-uri-component');
 const splitOnFirst = require('split-on-first');
+const _ = require('lodash');
 
 function encoderForArrayFormat(options) {
 	switch (options.arrayFormat) {
@@ -182,7 +183,7 @@ function parseValue(value, options) {
 }
 
 function parse(input, options) {
-	options = Object.assign({
+	options = _.extend({
 		decode: true,
 		sort: true,
 		arrayFormat: 'none',
@@ -250,7 +251,7 @@ exports.stringify = (object, options) => {
 		return '';
 	}
 
-	options = Object.assign({
+	options = _.extend({
 		encode: true,
 		strict: true,
 		arrayFormat: 'none'
@@ -258,7 +259,7 @@ exports.stringify = (object, options) => {
 
 	const formatter = encoderForArrayFormat(options);
 
-	const objectCopy = Object.assign({}, object);
+	const objectCopy = _.extend({}, object);
 	if (options.skipNull) {
 		for (const key of Object.keys(objectCopy)) {
 			if (objectCopy[key] === undefined || objectCopy[key] === null) {

@@ -35,8 +35,9 @@
 		"searchparams"
 	],
 	"dependencies": {
-		"split-on-first": "^1.0.0",
 		"decode-uri-component": "^0.2.0",
+		"lodash": "^4.17.15",
+		"split-on-first": "^1.0.0",
 		"strict-uri-encode": "^2.0.0"
 	},
 	"devDependencies": {
